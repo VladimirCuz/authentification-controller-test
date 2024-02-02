@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using authentification_controller_test.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace authentification_controller_test.Data
 {

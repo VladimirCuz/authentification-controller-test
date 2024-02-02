@@ -2,9 +2,9 @@
 {
     public class Comment
     {
-        public int id { get; set; }
+        public int CommentId { get; set; }
         public string comment { get; set; }
         public int AuthorId { get; set; }
-        public virtual User author { get; set; }
+        public User author { get; set; }
     }
 }

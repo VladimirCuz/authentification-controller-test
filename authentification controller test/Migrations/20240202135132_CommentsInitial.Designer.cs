@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using authentification_controller_test.Data;
 
@@ -10,9 +11,11 @@ using authentification_controller_test.Data;
 namespace authentification_controller_test.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240202135132_CommentsInitial")]
+    partial class CommentsInitial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,11 +26,11 @@ namespace authentification_controller_test.Migrations
 
             modelBuilder.Entity("authentification_controller_test.Comment", b =>
                 {
-                    b.Property<int>("CommentId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
@@ -36,7 +39,7 @@ namespace authentification_controller_test.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CommentId");
+                    b.HasKey("id");
 
                     b.HasIndex("AuthorId");
 

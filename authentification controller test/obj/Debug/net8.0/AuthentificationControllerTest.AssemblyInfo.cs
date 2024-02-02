@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AuthentificationControllerTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de7c0517c9d74715118d0ebb91a203bbeac2a6e9")]
 [assembly: System.Reflection.AssemblyProductAttribute("AuthentificationControllerTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AuthentificationControllerTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
