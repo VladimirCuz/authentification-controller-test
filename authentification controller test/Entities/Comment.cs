@@ -5,6 +5,6 @@
         public int CommentId { get; set; }
         public string comment { get; set; }
         public int AuthorId { get; set; }
-        public User author { get; set; }
+        public User Author { get; set; }
     }
 }

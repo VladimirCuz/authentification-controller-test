@@ -24,14 +24,14 @@ namespace authentification_controller_test.Controllers
         {
             if (Validator.Validate(username) && Validator.Validate(password))
                 {
-                if (await _userRepository.AnyAsync(u => u.login == username))
+                if (await _userRepository.AnyAsync(u => u.Login == username))
                 {
                     return Conflict("Такой пользователь уже существует.");
                 }
                 Random rand = new Random();
                 User user = new User();
-                user.login = username;
-                user.password = PasswordHandler.HashPassword(password);
+                user.Login = username;
+                user.Password = PasswordHandler.HashPassword(password);
                 user.UserRoles = new List<UserRole>
                     {
                         new UserRole{RoleId = 2, UserId = user.UserId} //автоматом выдает простого юзера
@@ -72,12 +72,12 @@ namespace authentification_controller_test.Controllers
         {
             if(Validator.Validate(Username) && Validator.Validate(newpassword))
             {
-                var user = await _userRepository.FirstOrDefaultAsync(u => u.login == Username);
+                var user = await _userRepository.FirstOrDefaultAsync(u => u.Login == Username);
             if(user == null)
             {
                 return BadRequest("Данные неправильно введены");
             }
-            user.password = PasswordHandler.HashPassword(newpassword);
+            user.Password = PasswordHandler.HashPassword(newpassword);
             await _userRepository.UpdateAsync(user);
             return Ok("Сброс пароля успешен");
             }
@@ -89,7 +89,7 @@ namespace authentification_controller_test.Controllers
         {
             if (Validator.Validate(username) && Validator.Validate(Password))
             {
-                var user = await _userRepository.FirstOrDefaultAsync(u => u.login == username && u.password == PasswordHandler.HashPassword(Password));
+                var user = await _userRepository.FirstOrDefaultAsync(u => u.Login == username && u.Password == PasswordHandler.HashPassword(Password));
                 if (user == null)
                 {
                     return BadRequest("Данные неправильно введены");

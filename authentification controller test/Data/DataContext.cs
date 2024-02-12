@@ -1,5 +1,6 @@
 ﻿using authentification_controller_test.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace authentification_controller_test.Data
 {
@@ -28,8 +29,19 @@ namespace authentification_controller_test.Data
                 .HasForeignKey(ur => ur.RoleId);
             modelBuilder.Entity<User>()
                 .HasMany(a => a.Comments)
-                .WithOne(b => b.author)
+                .WithOne(b => b.Author)
                 .HasForeignKey(b => b.AuthorId);
+            modelBuilder.Entity<User>().HasData(
+                               new User
+                               {
+                                   UserId = 1,
+                                   Login = "Admin",
+                                   Password = PasswordHandler.HashPassword("12345679asdfaszxc")
+                               });
+            modelBuilder.Entity<Role>().HasData(new Role { RoleId = 10, Name = "Admin", permissions = "adminpermissions" });
+            modelBuilder.Entity<UserRole>().HasData(new UserRole { RoleId = 10, UserId = 1 });
         }
+
+
     }
 }
